@@ -1,0 +1,141 @@
+html {
+  /* FONDO DE -> https://css-pattern.com/ */
+  --s: 194px; 
+  --c1: #f6edb3;
+  --c2: #acc4a3;
+  
+  --_l:#0000 calc(25%/3),var(--c1) 0 25%,#0000 0;
+  --_g:conic-gradient(from 120deg at 50% 87.5%,var(--c1) 120deg,#0000 0);
+  background:
+    var(--_g),var(--_g) 0 calc(var(--s)/2),
+    conic-gradient(from 180deg at 75%,var(--c2) 60deg,#0000 0),
+    conic-gradient(from 60deg at 75% 75%,var(--c1) 0 60deg,#0000 0),
+    linear-gradient(150deg,var(--_l)) 0 calc(var(--s)/2),
+    conic-gradient(at 25% 25%,#0000 50%,var(--c2) 0 240deg,var(--c1) 0 300deg,var(--c2) 0),
+    linear-gradient(-150deg,var(--_l)) #55897c /* third color here */;
+  background-size: calc(0.866*var(--s)) var(--s);
+}
+
+/* NAV */
+.nav{
+  display: flex;
+  padding: .5em 6vw .5em 6vw;
+  align-items: center;
+  justify-content: space-between;
+  transition: all .2s ease;
+  background-color: #1D3557;
+}
+
+.nav__title{
+  font-size: 2rem;
+  color: #fff;
+}
+
+.nav__menu{
+  display: flex;
+  list-style: none;
+}
+
+.link,
+.link-active, 
+.button{
+  position: relative;
+  margin: .8em .5em;
+  padding: 0 .6em;
+  list-style: none;
+  /* color: #78766D; */
+  /* color: #f8f3e1; */
+  color: rgba(255, 255, 255, 0.549);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: .05rem;
+}
+
+.link-active{
+  color: #fff;
+}
+
+.link-active::after{
+  content: "";
+  position: absolute;
+  height: .2em;
+  width: 100%;
+  left: 0;
+  bottom: -.6em;
+  background-color: #ffff00;
+}
+
+
+
+/* REGISTRO Y BODY */
+body{
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  font-size: larger;
+  width: 100%;
+}
+
+main{
+  display: grid;
+  place-items: center;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.form-container{
+  width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 50px;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form+p, form p {
+  text-align: center;
+}
+
+input, button{
+  border-radius: 4px;
+  border: unset;
+  padding: 15px 30px;
+  font-size: larger;
+}
+
+button{
+  background-color: #6495ed;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #273e64;
+  transition: all .1s;
+}
+
+.error{
+  color: rgb(255, 81, 81);
+}
+
+.escondido{
+  display: none;
+}
+
+.sr-only{
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
