@@ -21,6 +21,21 @@ const LogInSchema = new mongoose.Schema({
   }
 })
 
+const playerSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  image: {
+    type: Buffer,
+    required: true
+  }
+})
+
 const users = new mongoose.model('Users', LogInSchema)
 
 module.exports = users

@@ -37,18 +37,39 @@ router.get('/voleyball', (req, res) => {
   res.render('deportes/voleyball')
 })
 
-// Login
+// RUTAS ADMIN
 router.post('/login', async (req, res) => {
   try {
-    const check = await users.findOne({ name: req.body.name })
-    if (check.password === req.body.password) {
-      res.render('admin')
+    const user = await users.findOne({ name: req.body.name }).lean()
+    if (user.password === req.body.password) {
+      res.render('admin', { user })
     } else {
       res.send('Contraseña incorrecta')
     }
   } catch {
     res.send('Detalles incorrectos')
   }
+})
+router.get('/admin_deportes', (req, res) => {
+  res.render('admin_deportes')
+})
+router.get('/adminarco', (req, res) => {
+  res.render('admin/adminarco')
+})
+router.get('/adminatletismo', (req, res) => {
+  res.render('admin/adminatletismo')
+})
+router.get('/adminbaseball', (req, res) => {
+  res.render('admin/adminbaseball')
+})
+router.get('/adminbasketball', (req, res) => {
+  res.render('admin/adminbasketball')
+})
+router.get('/adminboxeo', (req, res) => {
+  res.render('admin/adminboxeo')
+})
+router.get('/adminvoleyball', (req, res) => {
+  res.render('admin/adminvoleyball')
 })
 
 export default router
