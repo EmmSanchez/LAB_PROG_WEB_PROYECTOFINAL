@@ -1,5 +1,5 @@
 import { Router } from 'express'
-const users = require('../mongodb')
+import { users, players } from '../mongodb'
 
 const router = Router()
 
@@ -18,11 +18,19 @@ router.get('/contacto', (req, res) => {
 })
 
 // RUTAS DE DEPORTES
-router.get('/arco', (req, res) => {
-  res.render('deportes/arco')
+router.get('/arco', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'arco'
+  })
+  res.render('deportes/arco', { player })
 })
-router.get('/atletismo', (req, res) => {
-  res.render('deportes/atletismo')
+router.get('/atletismo', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'atletismo'
+  })
+  res.render('deportes/atletismo', { player })
 })
 router.get('/baseball', (req, res) => {
   res.render('deportes/baseball')
@@ -41,6 +49,7 @@ router.get('/voleyball', (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const user = await users.findOne({ name: req.body.name }).lean()
+    console.log(users)
     if (user.password === req.body.password) {
       res.render('admin', { user })
     } else {
@@ -53,11 +62,22 @@ router.post('/login', async (req, res) => {
 router.get('/admin_deportes', (req, res) => {
   res.render('admin_deportes')
 })
-router.get('/adminarco', (req, res) => {
-  res.render('admin/adminarco')
+
+// ADMIN ARCO
+router.get('/adminarco', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'arco'
+  })
+  res.render('admin/adminarco', { player })
 })
-router.get('/adminatletismo', (req, res) => {
-  res.render('admin/adminatletismo')
+// ADMIN ATLETISMO
+router.get('/adminatletismo', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'atletismo'
+  })
+  res.render('admin/adminatletismo', { player })
 })
 router.get('/adminbaseball', (req, res) => {
   res.render('admin/adminbaseball')
@@ -70,6 +90,18 @@ router.get('/adminboxeo', (req, res) => {
 })
 router.get('/adminvoleyball', (req, res) => {
   res.render('admin/adminvoleyball')
+})
+
+// SUBIR ATLETA
+router.post('/player/add', async (req, res) => {
+  try {
+    const player = players(req.body)
+    await player.save()
+    const referer = req.headers.referer || '/' // DECIRLE QUE SE RECARGUE EN LA PÁGINA ACTUAL
+    res.redirect(referer)
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 export default router

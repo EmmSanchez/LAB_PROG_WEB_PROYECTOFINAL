@@ -107,3 +107,28 @@ body{
   border-radius: 5px;
   box-shadow: 13px 15px 15px -3px rgba(0,0,0,0.2);
 }
+
+/* Form */
+.form_wrapper{
+  margin: auto;
+  background-color: rgb(69, 123, 157);
+  color: #fff;
+  padding: 2rem 3rem;
+  width: fit-content;
+  font-size: 1.5em;
+  border-radius: .5rem;
+  max-width: 80%;
+}
+.form, .form_select{
+  /* background-color: #333; */
+  display: flex;
+  flex-direction: column;
+}
+.form{
+  gap: .5rem;
+}
+.textarea{
+  border: 2px solid #1D3557;
+  resize: both;
+  max-width: 100%;
+}

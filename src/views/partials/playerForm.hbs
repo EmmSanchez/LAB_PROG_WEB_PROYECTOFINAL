@@ -1,0 +1,27 @@
+<div class="form_wrapper">
+  <h2>Insertar Nuevo Atleta</h2>
+  <form action="/player/add" method="post" class="form">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" id="name" placeholder="Nombre" />
+    <label for="description">Descripción</label>
+    <textarea
+      name="description"
+      id="description"
+      placeholder="Descripción"
+      cols="60"
+      class="textarea"
+    ></textarea>
+    <div class="form_select">
+      <label for="sport">Deporte</label>
+      <select name="sport" id="sport">
+        <option value="arco">Tiro con arco</option>
+        <option value="atletismo">Atletismo</option>
+        <option value="baseball">Baseball</option>
+        <option value="basketball">Basketball</option>
+        <option value="box">Boxeo</option>
+        <option value="volleyball">Volleyball</option>
+      </select>
+    </div>
+    <button>Añadir</button>
+  </form>
+</div>
