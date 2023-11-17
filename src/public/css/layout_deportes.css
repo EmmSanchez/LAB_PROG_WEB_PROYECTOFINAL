@@ -75,16 +75,17 @@ body{
   padding: 5px;
   width: 100%;
   /* background-color: antiquewhite; */
-  background-color: rgb(225, 225, 225);
   border-radius: 10px;
   margin-top: 2rem;
+  box-shadow:  8px 8px 16px #d5d5d5,
+  -8px -8px 16px #ebebeb;
 }
 
 .box-wrapper{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   border-radius: 10px;
 }
 
@@ -118,6 +119,8 @@ body{
   font-size: 1.5em;
   border-radius: .5rem;
   max-width: 80%;
+  box-shadow:  8px 8px 30px #cecece,
+  -8px -8px 30px #f2f2f2;
 }
 .form, .form_select{
   /* background-color: #333; */
@@ -131,4 +134,18 @@ body{
   border: 2px solid #1D3557;
   resize: both;
   max-width: 100%;
+}
+
+/* buttons  */
+.buttons{
+  display: flex;
+  padding: 0 0 .5rem 1.5rem;
+}
+.button-delete{
+  text-decoration: none;
+  color: #ebebeb;
+  background-color: #E63946;
+  padding: .5rem 3rem;
+  font-size: 1em;
+  /* margin-left: 2rem; */
 }

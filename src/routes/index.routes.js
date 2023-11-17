@@ -103,5 +103,12 @@ router.post('/player/add', async (req, res) => {
     console.log(error)
   }
 })
+// BORRAR ATLETA
+router.get('/delete/:id', async (req, res) => {
+  const { id } = req.params
+  await players.findByIdAndDelete(id)
+  const referer = req.headers.referer || '/' // DECIRLE QUE SE RECARGUE EN LA PÁGINA ACTUAL
+  res.redirect(referer)
+})
 
 export default router
