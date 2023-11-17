@@ -37,7 +37,13 @@ const PlayerSchema = new mongoose.Schema({
   sport: {
     type: String,
     required: true
+  },
+  image: {
+    type: String,
+    required: true
   }
+}, {
+  versionKey: false
 })
 
 const users = new mongoose.model('Users', LogInSchema)

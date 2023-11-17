@@ -1,6 +1,11 @@
 <div class="form_wrapper">
   <h2>Insertar Nuevo Atleta</h2>
-  <form action="/player/add" method="post" class="form">
+  <form
+    action="/player/add"
+    method="post"
+    enctype="multipart/form-data"
+    class="form"
+  >
     <label for="name">Nombre</label>
     <input type="text" name="name" id="name" placeholder="Nombre" />
     <label for="description">Descripción</label>
@@ -11,6 +16,8 @@
       cols="60"
       class="textarea"
     ></textarea>
+    <label for="image">Imagen</label>
+    <input type="file" name="image" id="image" />
     <div class="form_select">
       <label for="sport">Deporte</label>
       <select name="sport" id="sport">

@@ -95,9 +95,16 @@ router.get('/adminvoleyball', (req, res) => {
 // SUBIR ATLETA
 router.post('/player/add', async (req, res) => {
   try {
-    const player = players(req.body)
+    const { name, description, sport } = (req.body)
+    const player = new players({
+      name,
+      description,
+      sport,
+      image: req.file.filename
+    })
     await player.save()
-    const referer = req.headers.referer || '/' // DECIRLE QUE SE RECARGUE EN LA PÁGINA ACTUAL
+    // DECIRLE QUE SE RECARGUE EN LA PÁGINA ACTUAL
+    const referer = req.headers.referer || '/'
     res.redirect(referer)
   } catch (error) {
     console.log(error)
