@@ -32,17 +32,33 @@ router.get('/atletismo', async (req, res) => {
   })
   res.render('deportes/atletismo', { player })
 })
-router.get('/baseball', (req, res) => {
-  res.render('deportes/baseball')
+router.get('/baseball', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'baseball'
+  })
+  res.render('deportes/baseball', { player })
 })
-router.get('/basketball', (req, res) => {
-  res.render('deportes/basketball')
+router.get('/basketball', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'basketball'
+  })
+  res.render('deportes/basketball', { player })
 })
-router.get('/boxeo', (req, res) => {
-  res.render('deportes/boxeo')
+router.get('/boxeo', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'box'
+  })
+  res.render('deportes/boxeo', { player })
 })
-router.get('/voleyball', (req, res) => {
-  res.render('deportes/voleyball')
+router.get('/voleyball', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'volleyball'
+  })
+  res.render('deportes/voleyball', { player })
 })
 
 // RUTAS ADMIN
@@ -79,17 +95,33 @@ router.get('/adminatletismo', async (req, res) => {
   })
   res.render('admin/adminatletismo', { player })
 })
-router.get('/adminbaseball', (req, res) => {
-  res.render('admin/adminbaseball')
+router.get('/adminbaseball', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'baseball'
+  })
+  res.render('admin/adminbaseball', { player })
 })
-router.get('/adminbasketball', (req, res) => {
-  res.render('admin/adminbasketball')
+router.get('/adminbasketball', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'basketball'
+  })
+  res.render('admin/adminbasketball', { player })
 })
-router.get('/adminboxeo', (req, res) => {
-  res.render('admin/adminboxeo')
+router.get('/adminboxeo', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'box'
+  })
+  res.render('admin/adminboxeo', { player })
 })
-router.get('/adminvoleyball', (req, res) => {
-  res.render('admin/adminvoleyball')
+router.get('/adminvoleyball', async (req, res) => {
+  let player = await players.find().lean()
+  player = player.filter((e) => {
+    return e.sport === 'volleyball'
+  })
+  res.render('admin/adminvoleyball', { player })
 })
 
 // SUBIR ATLETA

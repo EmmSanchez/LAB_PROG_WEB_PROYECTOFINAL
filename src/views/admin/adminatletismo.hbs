@@ -14,12 +14,15 @@
   </head>
 
   <body>
-      {{> navbar}}
-
+    {{> navbar}}
+  <div class="body-container">
+    <div class="form-container">
+      {{> playerForm}}
+    </div>
     <div class="wrapper_players">
-    {{> playerForm}}
-    <h2>ATLETISMO</h2>
-    {{> adminPlayerList}}
+      <h2>ATLETISMO</h2>
+      {{> adminPlayerList}}
+    </div>
   </div>
   </body>
 

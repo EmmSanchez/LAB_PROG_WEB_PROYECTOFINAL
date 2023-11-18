@@ -1,26 +1,38 @@
 <div class="form_wrapper">
-  <h2>Insertar Nuevo Atleta</h2>
+  <h2 class="form__title">Insertar Nuevo Atleta</h2>
   <form
     action="/player/add"
     method="post"
     enctype="multipart/form-data"
     class="form"
   >
-    <label for="name">Nombre</label>
-    <input type="text" name="name" id="name" placeholder="Nombre" />
-    <label for="description">Descripción</label>
-    <textarea
-      name="description"
-      id="description"
-      placeholder="Descripción"
-      cols="60"
-      class="textarea"
-    ></textarea>
-    <label for="image">Imagen</label>
-    <input type="file" name="image" id="image" />
+    <div class="form_name">
+      <label for="name" class="form__label">Nombre</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Ingresa el nombre del atleta"
+        class="input"
+      />
+    </div>
+    <div class="form_desc">
+      <label for="description" class="form__label">Descripción</label>
+      <textarea
+        name="description"
+        id="description"
+        placeholder="Ingresa la descripción del atleta"
+        cols="60"
+        class="textarea input"
+      ></textarea>
+    </div>
+    <div class="form_image">
+      <label for="image" class="form__label">Imagen</label>
+      <input type="file" name="image" id="image" />
+    </div>
     <div class="form_select">
-      <label for="sport">Deporte</label>
-      <select name="sport" id="sport">
+      <label for="sport" class="form__label">Deporte</label>
+      <select name="sport" id="sport" class="input select-box">
         <option value="arco">Tiro con arco</option>
         <option value="atletismo">Atletismo</option>
         <option value="baseball">Baseball</option>
@@ -29,6 +41,6 @@
         <option value="volleyball">Volleyball</option>
       </select>
     </div>
-    <button>Añadir</button>
+    <button class="form__button">Añadir</button>
   </form>
 </div>
